@@ -1,0 +1,106 @@
+body {
+	background: url(../img/background.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.title{
+ 	 margin-top: 180px;
+ 	 
+} 
+.main-section {
+	margin: 0 auto;
+	margin-top: 25%;
+	padding: 0;
+}
+
+.modal-content {
+	background-color: #3b4652;
+	opacity: .85;
+	padding: 0 20px;
+	box-shadow: 0px 0px 3px #848484;
+}
+
+.logo-img {
+	left: 0px;
+	display: flex;
+}
+
+.logo-img>img {
+	width: 80px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.user-img {
+	margin-top: -50px;
+	margin-bottom: 20px;
+}
+
+.user-img img {
+	width: 100xp;
+	height: 100px;
+	box-shadow: 0px 0px 3px #848484;
+	border-radius: 50%;
+}
+
+.tabla{
+	border: 2px solid black; 
+	margin-top: 100px;
+}
+
+.span_ {
+	border: solid black 2px;
+	color: white;
+	direction: flex;
+	margin-bottom: 5px
+}
+
+.span_>div {
+	border: solid red 2px;
+	padding-left: 0;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;	
+}
+
+.infoStudent{
+	margin: 80px  0;
+/* 	display: flex; */
+/* 	flex-direction: column;	 */
+	
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}

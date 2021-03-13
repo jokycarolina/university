@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/../css/detailsSubject.css}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/../css/styles.css}">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	rel="stylesheet">
+<title>Perfil Estudiante</title>
+</head>
+<header th:insert="fragments/navbar :: navbar-main"> </header>
+<body>
+<div class="infoStudent container-fluid table-responsive">
+<h5 th:if="${msg != null}" class="alert alert-success"
+						th:text="${msg}" role="alert"></h5>
+<h2 class="display-4 mr-5">Listado de Materias Disponibles para inscribir</h2>
+<table class="table">
+  <tr>
+    <th>Materia</th>
+    <th>Cupo Disponible</th>
+    <th>Horario</th>
+    <th>Detalle<th>
+    <th>Inscribir</th>
+  </tr>
+  <tr th:each="tpsubject: ${subjects}">
+    <td th:text="${tpsubject.name_subject}"></td>
+    <td th:text="${tpsubject.place_max}"></td>
+     <td >[[${tpsubject.schedule_subject.days}]] </br> [[${tpsubject.schedule_subject.hours}]]</td>
+      <td ><a th:href="@{/subject/{id} (id=${tpsubject.id})}" class="btn btn-outline-secondary">Ver Descripción</a><td>
+  	 <td><a class="btn btn-primary btn-sm text-right" th:href="@{/student/inscription/{idStudent}/{id} (idStudent=${student.id},id=${tpsubject.id})}" type="button">Inscribir</a></td>                    
+  </tr>
+</table></div>
+<div class="infoStudent container-fluid table-responsive">
+<h2 class="display-4 mr-5"> Materias Inscriptas </h2>
+<table class="table">
+  <tr>
+    <th>Materia</th>
+    <th>Horario</th>
+    <th>Profesor</th>
+    <th>Detalle</th>
+    <th>Eliminar</th>
+    </tr>
+  <tr th:each="subject: ${subjectStudent}">
+    <td th:text="${subject.name_subject}"></td>
+	<td >[[${subject.schedule_subject.days}]] [[${subject.schedule_subject.hours}]]</td>
+    <td >[[${subject.professors[0].first_name}]] [[${subject.professors[0].last_name}]]</td>
+    <td ><a th:href="@{/subject/{id} (id=${subject.id})}" class="btn btn-outline-secondary">Ver Descripción</a></td>
+    <td><a th:href="@{/student/deleteSubject/{idStudent}/{idSubject} (idStudent=${student.id},idSubject=${subject.id})}"
+									onclick="return confirm('¿Estas seguro?')"
+									class="btn btn-success btn-sm" role="button" title="Eliminar">
+									<i class="fas fa-trash" aria-hidden="true"></i></a></td> 
+    </tr>
+</table>
+</div>
+</body>
+</html>

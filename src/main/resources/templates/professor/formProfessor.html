@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Administrador</title>
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/../css/detailsSubject.css}">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/../css/styles.css}">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	rel="stylesheet">
+</head>
+<body>
+	<header th:insert="fragments/navbarAdmin :: navbar-main"> </header>
+
+	<main role="main">
+		<hr>
+		<div class="container infoStudent">
+
+			<div class="card">
+				<h4 class="card-header">
+					<strong>Profesor/a</strong>
+				</h4>
+				<div class="card-body">
+					<form th:action="@{/professor/save}" method="post"
+						th:object="${professor}">
+						
+						<div class="row ">
+							<div class="col">
+								<div class="form-group">
+								<input type="hidden" th:field="*{id}">
+									<label for="nameProfessor">Nombre</label>
+									<input type="hidden" th:field="*{id}">
+									 <input
+										th:field="*{first_name}" type="text" class="form-control"
+										id="name" name="nameProfessor"
+										placeholder="Escriba aca el nombre del/a profesor/a"
+										required="required">
+							<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
+							role="alert">
+							Por favor corrija los siguientes errores:
+							<ul>
+								<li th:each="err: ${#fields.errors('*')}" th:text="${err}" />
+							</ul>
+						</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label for="nombre">Apellido</label> <input
+										th:field="*{last_name}" type="text" class="form-control"
+										id="name" name="nameProfessor"
+										placeholder="Escriba aca el apellido del/a profesor/a"
+										required="required">
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label for="places">DNI </label> <input
+										th:field="*{document_number}" type="text" class="form-control"
+										name="idProfessor" id="idProfessor" placeholder="Numero de documento"
+										required="required">
+								</div>
+							</div>
+								<div class="col">
+								<div class="form-check">
+									<label class="form-check-label" for="statusProfessor"></label><br>
+									<input th:field="*{active}" class="form-check-input"
+										type="radio" name="statusProfessor" id="statusProfessor" checked="checked"
+										value=1> <label class="form-check-label"
+										for="statusProfessor">Activo</label>
+
+								</div>
+								<div class="form-check">
+									<label class="form-check-label" for="statusProfessor"></label><br>
+									<input th:field="*{active}" class="form-check-input"
+										type="radio" name="statusProfessor" id="statusProfessor" value=0
+										checked="checked"> <label class="form-check-label"
+										for="statusProfessor">Inactivo</label>
+	</div>
+								</div></div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary mt-5">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/tinymce/tinymce.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<nav th:fragment="navbar-main" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-5">
+        <p class="navbar-brand mt-20" th:href="@{/}">Perfil Alumno</p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto p-2">
+            <li class="nav-item ">
+              <a class="nav-link active" th:href="@{/}">Inicio</a>
+            </li>
+			<ul class="navbar-nav mr-auto">
+			 <a class= "nav-link" th:href="@{/vacancies/}"> </a>
+			</ul>  		      
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/categories/index}">Categorias</a>
+            </li>          
+          </ul>  
+       
+          <a class="btn btn-primary" th:href="@{/logout}">Salir</a>
+        </div>
+      </nav>
